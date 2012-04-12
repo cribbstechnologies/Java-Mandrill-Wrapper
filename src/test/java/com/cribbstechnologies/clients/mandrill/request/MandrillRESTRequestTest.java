@@ -38,7 +38,6 @@ import org.mockito.Mockito;
 import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.BaseMandrillRequest;
 import com.cribbstechnologies.clients.mandrill.model.MandrillHtmlMessage;
-import com.cribbstechnologies.clients.mandrill.model.MandrillMessage;
 import com.cribbstechnologies.clients.mandrill.model.MandrillMessageRequest;
 import com.cribbstechnologies.clients.mandrill.model.MandrillRecipient;
 import com.cribbstechnologies.clients.mandrill.model.MandrillRequestWithDomain;
@@ -250,8 +249,7 @@ public class MandrillRESTRequestTest {
 		sb.append("{");
 		sb.append("\"key\":\"API Key\"");
 		sb.append(",\"message\":{");
-		sb.append("\"html\":\"Test html\"");
-		sb.append(",\"text\":\"Test text\"");
+		sb.append("\"text\":\"Test text\"");
 		sb.append(",\"subject\":\"Test subject\"");
 		sb.append(",\"from_email\":\"from@email.com\"");
 		sb.append(",\"from_name\":\"From Name\"");
@@ -263,7 +261,9 @@ public class MandrillRESTRequestTest {
 		sb.append(",\"tags\":[\"tag1\",\"tag2\"]");
 		sb.append(",\"google_analytics_domains\":[]");
 		sb.append(",\"google_analytics_campaign\":[]");
-		sb.append(",\"headers\":{\"headerName\":\"headerValue\"}}}");
+		sb.append(",\"headers\":{\"headerName\":\"headerValue\"},");
+		sb.append("\"html\":\"Test html\"");
+		sb.append("}}");
 		String output = request.getPostData(mutableMessageRequest);
 		System.out.println("Comparing:\n" + sb.toString() + "\n" + output);
 		assertEquals(sb.toString(), output);
