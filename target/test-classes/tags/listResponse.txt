@@ -1,0 +1,1 @@
+[{"tag": "example tag1", "sent":1,"hard_bounces":2,"soft_bounces":3,"rejects":4,"complaints":5,"unsubs":6,"opens":7,"clicks":8},{"tag": "example tag11", "sent":11,"hard_bounces":12,"soft_bounces":13,"rejects":14,"complaints":15,"unsubs":16,"opens":17,"clicks":18}]

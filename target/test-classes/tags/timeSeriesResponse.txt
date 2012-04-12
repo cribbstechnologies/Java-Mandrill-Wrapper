@@ -1,0 +1,1 @@
+[{"time": "example time1", "sent":2,"hard_bounces":3,"soft_bounces":4,"rejects":5,"complaints":6,"opens":7,"unique_opens":8,"clicks":9,"unique_clicks":10},{"time": "example time11", "sent":12,"hard_bounces":13,"soft_bounces":14,"rejects":15,"complaints":16,"opens":17,"unique_opens":18,"clicks":19,"unique_clicks":110}]

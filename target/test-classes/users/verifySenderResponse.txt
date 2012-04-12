@@ -1,0 +1,1 @@
+{"domain": "example domain", "created_at": "example created_at", "approved_at": "example approved_at", "is_enabled":true}
