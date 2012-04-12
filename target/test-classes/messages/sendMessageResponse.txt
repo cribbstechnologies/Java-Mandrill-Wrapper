@@ -1,1 +1,0 @@
-[{"email": "example email", "status": "example status"},{"email": "example email2", "status": "example status2"}]
