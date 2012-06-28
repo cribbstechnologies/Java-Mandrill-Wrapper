@@ -1,5 +1,6 @@
 package com.cribbstechnologies.clients.mandrill.model;
 
+import java.util.List;
 import java.util.Map;
 
 public class MandrillMessage {
@@ -16,6 +17,7 @@ public class MandrillMessage {
 	private String[] tags = new String[0];
 	private String[] google_analytics_domains = new String[0];
 	private String[] google_analytics_campaign = new String[0];
+    private List<MergeVar> global_merge_vars;
 	
 	private Map<String, String> headers;
 	
@@ -122,7 +124,13 @@ public class MandrillMessage {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
-	
-	
+
+
+    public List<MergeVar> getGlobal_merge_vars() {
+        return global_merge_vars;
+    }
+
+    public void setGlobal_merge_vars(List<MergeVar> global_merge_vars) {
+        this.global_merge_vars = global_merge_vars;
+    }
 }
