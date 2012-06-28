@@ -11,8 +11,9 @@ public class ServiceMethods {
 	}
 	
 	public class Messages {
-		public static final String SEND = "messages/send.json";
-	}
+        public static final String SEND = "messages/send.json";
+        public static final String SEND_TEMPLATE = "messages/send-template.json";
+    }
 	
 	public class Tags {
 		public static final String LIST = "tags/list.json";
