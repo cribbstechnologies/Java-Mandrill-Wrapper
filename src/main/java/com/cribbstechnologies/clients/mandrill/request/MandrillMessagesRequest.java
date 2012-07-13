@@ -35,7 +35,7 @@ public class MandrillMessagesRequest {
 	
 	public SendMessageResponse sendTemplatedMessage(MandrillTemplatedMessageRequest templateMessage) throws RequestFailedException {
 		SendMessageResponse response = new SendMessageResponse();
-		response.setList(((BaseMandrillAnonymousListResponse<MessageResponse>) request.postRequest(templateMessage, ServiceMethods.Messages.SEND, SendMessageResponse.class, messageResponseListReference)).getList());
+		response.setList(((BaseMandrillAnonymousListResponse<MessageResponse>) request.postRequest(templateMessage, ServiceMethods.Messages.SEND_TEMPLATE, SendMessageResponse.class, messageResponseListReference)).getList());
 		return response;
 	}
 
