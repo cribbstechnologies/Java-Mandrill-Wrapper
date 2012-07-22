@@ -1,0 +1,33 @@
+<bean id="defaultMandrillConfiguration" class="com.cribbstechnologies.clients.mandrill.util.MandrillConfiguration">
+	<property name="apiVersion" value=""/>
+	<property name="baseURL" value="https://mandrillapp.com/api"/>
+	<property name="apiKey" value="1.0"/>
+</bean>
+
+<bean id="apacheHttpClient" class="org.apache.http.impl.client.DefaultHttpClient"/>
+<bean id="defaultObjectMapper" class="org.codehaus.jackson.map.ObjectMapper"/>
+
+<bean id="mandrillRESTRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillRestRequest">
+	<property name="config" ref="defaultMandrillConfiguration"/>
+	<property name="httpClient" ref="apacheHttpClient"/>
+	<property name="objectMapper" ref="defaultObjectMapper"/>
+</bean>
+
+
+<!-- Request Classes -->
+
+<bean id="messagesRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillMessagesRequest">
+	<property name="request" value="mandrillRESTRequest"/>
+</bean>
+<bean id="tagsRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillTagsRequest">
+	<property name="request" value="mandrillRESTRequest"/>
+</bean>
+<bean id="templatesRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillTemplatesRequest">
+	<property name="request" value="mandrillRESTRequest"/>
+</bean>
+<bean id="urlsRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillUrlsRequest">
+	<property name="request" value="mandrillRESTRequest"/>
+</bean>
+<bean id="usersRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillUsersRequest">
+	<property name="request" value="mandrillRESTRequest"/>
+</bean>
