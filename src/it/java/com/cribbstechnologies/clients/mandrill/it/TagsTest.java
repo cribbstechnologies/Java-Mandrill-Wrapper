@@ -2,6 +2,9 @@ package com.cribbstechnologies.clients.mandrill.it;
 
 import static org.junit.Assert.fail;
 
+import java.io.IOException;
+import java.util.Properties;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -28,7 +31,13 @@ public class TagsTest {
 	
 	@BeforeClass
 	public static void beforeClass() {
-		config.setApiKey("a2d9f0f9-5646-4af2-a507-76758c71631b");
+		Properties props = new Properties();
+		try {
+			props.load(TagsTest.class.getClassLoader().getResourceAsStream("mandrill.properties"));
+		} catch (IOException e) {
+			fail ("properties file not loaded");
+		}
+		config.setApiKey(props.getProperty("apiKey"));
 		config.setApiVersion("1.0");
 		config.setBaseURL("https://mandrillapp.com/api");
 		request.setConfig(config);

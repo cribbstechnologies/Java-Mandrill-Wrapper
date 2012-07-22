@@ -9,6 +9,7 @@ public class UsersInfoResponse extends BaseMandrillResponse {
 	String created_at;
 	int reputation;
 	int hourly_quota;
+	int backlog;
 	
 	StatsResponseMap stats;
 
@@ -51,5 +52,15 @@ public class UsersInfoResponse extends BaseMandrillResponse {
 	public void setStats(StatsResponseMap stats) {
 		this.stats = stats;
 	}
+
+	public int getBacklog() {
+		return backlog;
+	}
+
+	public void setBacklog(int backlog) {
+		this.backlog = backlog;
+	}
+	
+	
 
 }

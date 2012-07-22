@@ -2,10 +2,12 @@ package com.cribbstechnologies.clients.mandrill.it;
 
 import static org.junit.Assert.fail;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -33,10 +35,16 @@ public class MessagesTest {
 	private static MandrillMessagesRequest messagesRequest = new MandrillMessagesRequest();
 	private static HttpClient client;
 	private static ObjectMapper mapper = new ObjectMapper();
+	private static Properties props = new Properties();
 	
 	@BeforeClass
 	public static void beforeClass() {
-		config.setApiKey("a2d9f0f9-5646-4af2-a507-76758c71631b");
+		try {
+			props.load(MessagesTest.class.getClassLoader().getResourceAsStream("mandrill.properties"));
+		} catch (IOException e) {
+			fail ("properties file not loaded");
+		}
+		config.setApiKey(props.getProperty("apiKey"));
 		config.setApiVersion("1.0");
 		config.setBaseURL("https://mandrillapp.com/api");
 		request.setConfig(config);
@@ -55,12 +63,12 @@ public class MessagesTest {
 		MandrillMessageRequest mmr = new MandrillMessageRequest();
 		MandrillHtmlMessage message = new MandrillHtmlMessage();
 		Map<String, String> headers = new HashMap<String, String>();
-		message.setFrom_email("jim@cribbstechnologies.com");
+		message.setFrom_email(props.getProperty("email.from"));
 		message.setFrom_name("Big Jimmy");
 		message.setHeaders(headers);
 		message.setHtml("<html><body><h1>Oh snap!</h1>Guess what I saw?<a href=\"http://www.google.com\">google</a></body></html>");
 		message.setSubject("This is the subject");
-		MandrillRecipient[] recipients = new MandrillRecipient[]{new MandrillRecipient("Brian Cribbs", "briancribbs@gmail.com"), new MandrillRecipient("Brian Cribbs", "brian@cribbstechnologies.com")};
+		MandrillRecipient[] recipients = new MandrillRecipient[]{new MandrillRecipient(props.getProperty("email.to.name1"), props.getProperty("email.to.address1")), new MandrillRecipient(props.getProperty("email.to.name2"), props.getProperty("email.to.address2"))};
 		message.setTo(recipients);
 		message.setTrack_clicks(true);
 		message.setTrack_opens(true);
@@ -81,11 +89,11 @@ public class MessagesTest {
 		MandrillTemplatedMessageRequest request = new MandrillTemplatedMessageRequest();
 		MandrillMessage message = new MandrillMessage();
 		Map<String, String> headers = new HashMap<String, String>();
-		message.setFrom_email("jim@cribbstechnologies.com");
+		message.setFrom_email(props.getProperty("email.from"));
 		message.setFrom_name("Big Jimmy");
 		message.setHeaders(headers);
 		message.setSubject("This is the subject");
-		MandrillRecipient[] recipients = new MandrillRecipient[]{new MandrillRecipient("Brian Cribbs", "briancribbs@gmail.com"), new MandrillRecipient("Brian Cribbs", "brian@cribbstechnologies.com")};
+		MandrillRecipient[] recipients = new MandrillRecipient[]{new MandrillRecipient(props.getProperty("email.to.name1"), props.getProperty("email.to.address1")), new MandrillRecipient(props.getProperty("email.to.name2"), props.getProperty("email.to.address2"))};
 		message.setTo(recipients);
 		message.setTrack_clicks(true);
 		message.setTrack_opens(true);

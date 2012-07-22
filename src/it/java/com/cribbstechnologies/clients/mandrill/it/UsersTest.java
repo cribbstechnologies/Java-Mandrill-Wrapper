@@ -3,6 +3,9 @@ package com.cribbstechnologies.clients.mandrill.it;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.io.IOException;
+import java.util.Properties;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -30,10 +33,16 @@ public class UsersTest {
 	private static MandrillUsersRequest usersRequest = new MandrillUsersRequest();
 	private static HttpClient client;
 	private static ObjectMapper mapper = new ObjectMapper();
+	private static Properties props = new Properties();
 	
 	@BeforeClass
 	public static void beforeClass() {
-		config.setApiKey("a2d9f0f9-5646-4af2-a507-76758c71631b");
+		try {
+			props.load(UsersTest.class.getClassLoader().getResourceAsStream("mandrill.properties"));
+		} catch (IOException e) {
+			fail ("properties file not loaded");
+		}
+		config.setApiKey(props.getProperty("apiKey"));
 		config.setApiVersion("1.0");
 		config.setBaseURL("https://mandrillapp.com/api");
 		request.setConfig(config);
@@ -82,7 +91,7 @@ public class UsersTest {
 	@Test
 	public void testVerifySender() {
 		MandrillRequestWithEmail emailRequest = new MandrillRequestWithEmail();
-		emailRequest.setEmail("radar@cribbstechnologies.com");
+		emailRequest.setEmail(props.getProperty("verify.email"));
 		try {
 			VerifyResponse response = usersRequest.verifySender(emailRequest);
 		} catch (RequestFailedException e) {
