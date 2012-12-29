@@ -53,10 +53,10 @@ public class MandrillRESTRequest {
 	 
 			StringBuffer sb = new StringBuffer();
 			String output;
-			System.out.println("Output from Server .... \n");
+			//System.out.println("Output from Server .... \n");
 			while ((output = br.readLine()) != null) {
 				sb.append(output);
-				System.out.println(output);
+				//System.out.println(output);
 			}
 	 
 			String responseString = sb.toString();
