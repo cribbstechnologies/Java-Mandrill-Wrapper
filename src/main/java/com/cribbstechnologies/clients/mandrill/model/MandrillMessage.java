@@ -10,6 +10,7 @@ public class MandrillMessage {
 	private String from_email;
 	private String from_name;
 	private MandrillRecipient[] to;
+	private String bcc_address;
 	private boolean track_opens=false;
 	private boolean track_clicks=false;
 	private boolean auto_text=false;
@@ -53,6 +54,14 @@ public class MandrillMessage {
 		this.to = to;
 	}
 	
+	public String getBcc_address() {
+		return bcc_address;
+	}
+	
+	public void setBcc_address(String bcc) {
+		this.bcc_address = bcc;
+	}
+
 	public boolean isTrack_opens() {
 		return track_opens;
 	}
