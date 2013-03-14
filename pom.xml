@@ -1,8 +1,36 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
   <groupId>com.cribbstechnologies.clients</groupId>
   <artifactId>mandrillClient</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Java Mandrill Wrapper</name>
+  <description>A Java wrapper for Mandrill</description>
+  <url>https://github.com/cribbstechnologies/Java-Mandrill-Wrapper</url>
+
+  <developers>
+    <developer>
+      <name>Brian Cribbs</name>
+      <organization>Cribbs Technologies</organization>
+      <organizationUrl>http://www.cribbstechnologies.com/</organizationUrl>
+      <email>brian@cribbstechnologies.com</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+  </developers>
+  
+  <scm>
+    <url>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</url>
+    <connection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</connection>
+    <developerConnection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git
+    </developerConnection>
+  </scm>
   
   <dependencies>
   	<dependency>
