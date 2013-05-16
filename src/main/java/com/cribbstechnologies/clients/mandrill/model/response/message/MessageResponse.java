@@ -4,9 +4,10 @@ import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillRespon
 
 public class MessageResponse extends BaseMandrillResponse {
 
-	String email; 
+	String email;
 	String status;
-    String _id;
+	String _id;
+	String reject_reason;
 
 	public String getEmail() {
 		return email;
@@ -24,11 +25,19 @@ public class MessageResponse extends BaseMandrillResponse {
 		this.status = status;
 	}
 
-    public String get_id() {
-        return _id;
-    }
+	public String get_id() {
+		return _id;
+	}
 
-    public void set_id(String _id) {
-        this._id = _id;
-    }
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+
+	public void setReject_reason(String reject_reason) {
+		this.reject_reason = reject_reason;
+	}
+
+	public String getReject_reason() {
+		return reject_reason;
+	}
 }
