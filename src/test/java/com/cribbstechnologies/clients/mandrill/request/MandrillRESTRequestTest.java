@@ -262,6 +262,7 @@ public class MandrillRESTRequestTest {
 		sb.append(",\"google_analytics_domains\":[]");
 		sb.append(",\"google_analytics_campaign\":[]");
         sb.append(",\"global_merge_vars\":null");
+        sb.append(",\"merge_vars\":null");
 		sb.append(",\"headers\":{\"headerName\":\"headerValue\"},");
 		sb.append("\"html\":\"Test html\"");
 		sb.append("}}");
