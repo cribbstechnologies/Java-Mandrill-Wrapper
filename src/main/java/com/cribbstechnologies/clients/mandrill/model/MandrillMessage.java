@@ -18,7 +18,8 @@ public class MandrillMessage {
 	private String[] google_analytics_domains = new String[0];
 	private String[] google_analytics_campaign = new String[0];
     private List<MergeVar> global_merge_vars;
-	
+    List<MessageMergeVars> merge_vars;
+
 	private Map<String, String> headers;
 	
 	public String getSubject() {
@@ -132,5 +133,13 @@ public class MandrillMessage {
 
     public void setGlobal_merge_vars(List<MergeVar> global_merge_vars) {
         this.global_merge_vars = global_merge_vars;
+    }
+
+    public List<MessageMergeVars> getMerge_vars() {
+        return merge_vars;
+    }
+
+    public void setMerge_vars(List<MessageMergeVars> merge_vars) {
+        this.merge_vars = merge_vars;
     }
 }
