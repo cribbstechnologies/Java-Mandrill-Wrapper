@@ -42,7 +42,7 @@ public class MandrillRESTRequest {
 			request.setKey(config.getApiKey());
 			HttpPost postRequest = new HttpPost(config.getServiceUrl() + serviceMethod);
 			String postData = getPostData(request);
-			StringEntity input = new StringEntity(postData, "UFT-8");
+			StringEntity input = new StringEntity(postData, "UTF-8");
 			input.setContentType("application/json");
 			postRequest.setEntity(input);
 			
