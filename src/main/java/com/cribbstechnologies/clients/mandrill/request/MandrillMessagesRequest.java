@@ -32,7 +32,6 @@ public class MandrillMessagesRequest {
      * @throws RequestFailedException
      */
     public SendMessageResponse sendMessage(MandrillMessageRequest messageRequest) throws RequestFailedException {
-        messageRequest.setKey(request.getConfig().getApiKey());
         SendMessageResponse response = new SendMessageResponse();
         response.setList(((BaseMandrillAnonymousListResponse<MessageResponse>) request.postRequest(messageRequest, ServiceMethods.Messages.SEND, SendMessageResponse.class,
                 messageResponseListReference)).getList());
@@ -40,7 +39,6 @@ public class MandrillMessagesRequest {
     }
 
     public SendMessageResponse sendTemplatedMessage(MandrillTemplatedMessageRequest templateMessage) throws RequestFailedException {
-        templateMessage.setKey(request.getConfig().getApiKey());
         SendMessageResponse response = new SendMessageResponse();
         response.setList(((BaseMandrillAnonymousListResponse<MessageResponse>) request.postRequest(templateMessage, ServiceMethods.Messages.SEND_TEMPLATE,
                 SendMessageResponse.class, messageResponseListReference)).getList());

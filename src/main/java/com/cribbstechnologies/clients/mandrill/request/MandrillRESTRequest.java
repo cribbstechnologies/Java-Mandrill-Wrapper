@@ -127,8 +127,4 @@ public class MandrillRESTRequest {
         this.objectMapper = objectMapper;
     }
 
-    public MandrillConfiguration getConfig() {
-        return config;
-    }
-
 }

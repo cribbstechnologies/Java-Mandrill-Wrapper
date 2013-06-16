@@ -41,7 +41,6 @@ public class MandrillUsersRequest {
      * @throws RequestFailedException
      */
     public UsersInfoResponse getInfo(BaseMandrillRequest infoRequest) throws RequestFailedException {
-        infoRequest.setKey(request.getConfig().getApiKey());
         BaseMandrillResponse response = request.postRequest(infoRequest, ServiceMethods.Users.INFO, UsersInfoResponse.class);
         return (UsersInfoResponse) response;
     }
@@ -54,7 +53,6 @@ public class MandrillUsersRequest {
      * @throws RequestFailedException
      */
     public BaseMandrillStringResponse performPing(BaseMandrillRequest pingRequest) throws RequestFailedException {
-        pingRequest.setKey(request.getConfig().getApiKey());
         BaseMandrillStringResponse response = (BaseMandrillStringResponse) request.postRequest(pingRequest, ServiceMethods.Users.PING, null);
         return response;
     }
@@ -67,8 +65,7 @@ public class MandrillUsersRequest {
      * @throws RequestFailedException
      */
     public PingResponse performPing2(BaseMandrillRequest pingRequest) throws RequestFailedException {
-        pingRequest.setKey(request.getConfig().getApiKey());
-        PingResponse response = (PingResponse) request.postRequest(pingRequest, ServiceMethods.Users.PING2, PingResponse.class);
+        PingResponse response = (PingResponse) request.postRequest(pingRequest, ServiceMethods.Users.PING2, null);
         return response;
     }
 
@@ -80,7 +77,6 @@ public class MandrillUsersRequest {
      * @throws RequestFailedException
      */
     public UsersSendersResponse getSenders(BaseMandrillRequest sendersRequest) throws RequestFailedException {
-        sendersRequest.setKey(request.getConfig().getApiKey());
         UsersSendersResponse response = new UsersSendersResponse();
         response.setList(((BaseMandrillAnonymousListResponse<MandrillSender>) request.postRequest(sendersRequest, ServiceMethods.Users.SENDERS, UsersSendersResponse.class,
                 usersListReference)).getList());

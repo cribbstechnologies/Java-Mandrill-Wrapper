@@ -24,7 +24,6 @@ public class MandrillTagsRequest {
     };
 
     public TagListResponse getList(BaseMandrillRequest tagsRequest) throws RequestFailedException {
-        tagsRequest.setKey(request.getConfig().getApiKey());
         TagListResponse response = new TagListResponse();
         response.setList(((BaseMandrillAnonymousListResponse<BaseTag>) request.postRequest(tagsRequest, ServiceMethods.Tags.LIST, TagListResponse.class, nameTagReference))
                 .getList());
@@ -32,7 +31,6 @@ public class MandrillTagsRequest {
     }
 
     public TagSeriesResponse getTimeSeries(MandrillRequestWithTag tagsRequest) throws RequestFailedException {
-        tagsRequest.setKey(request.getConfig().getApiKey());
         TagSeriesResponse response = new TagSeriesResponse();
         response.setList(((BaseMandrillAnonymousListResponse<TagWithTime>) request.postRequest(tagsRequest, ServiceMethods.Tags.TIME_SERIES, TagSeriesResponse.class,
                 timeTagReference)).getList());
@@ -40,7 +38,6 @@ public class MandrillTagsRequest {
     }
 
     public TagSeriesResponse getAllTimeSeries(BaseMandrillRequest tagsRequest) throws RequestFailedException {
-        tagsRequest.setKey(request.getConfig().getApiKey());
         TagSeriesResponse response = new TagSeriesResponse();
         response.setList(((BaseMandrillAnonymousListResponse<TagWithTime>) request.postRequest(tagsRequest, ServiceMethods.Tags.ALL_TIME_SERIES, TagSeriesResponse.class,
                 timeTagReference)).getList());
