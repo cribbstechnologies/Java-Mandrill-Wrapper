@@ -14,35 +14,42 @@ import com.cribbstechnologies.clients.mandrill.model.response.templates.Template
 import com.cribbstechnologies.clients.mandrill.model.response.templates.TemplateResponse;
 
 public class MandrillTemplatesRequest {
-	
-	MandrillRESTRequest request;
-	
-	TypeReference<List<TemplateResponse>> templatesListReference = new TypeReference<List<TemplateResponse>>(){};
-	
-	public TemplateResponse addTemplate(MandrillRequestWithCode addRequest) throws RequestFailedException {
-		return (TemplateResponse) request.postRequest(addRequest, ServiceMethods.Templates.ADD, TemplateResponse.class);
-	}
-	
-	public TemplateResponse getTemplateInfo(MandrillRequestWithName infoRequest) throws RequestFailedException {
-		return (TemplateResponse) request.postRequest(infoRequest, ServiceMethods.Templates.INFO, TemplateResponse.class);
-	}
-	
-	public TemplateResponse updateTemplate(MandrillRequestWithCode updateRequest) throws RequestFailedException {
-		return (TemplateResponse) request.postRequest(updateRequest, ServiceMethods.Templates.UPDATE, TemplateResponse.class);
-	}
-	
-	public TemplateResponse deleteTemplate(MandrillRequestWithName deleteRequest) throws RequestFailedException {
-		return (TemplateResponse) request.postRequest(deleteRequest, ServiceMethods.Templates.DELETE, TemplateResponse.class);
-	}
-	
-	public TemplateListResponse getTemplates(BaseMandrillRequest listRequest) throws RequestFailedException {
-		TemplateListResponse response = new TemplateListResponse();
-		response.setList(((BaseMandrillAnonymousListResponse<TemplateResponse>)request.postRequest(listRequest, ServiceMethods.Templates.LIST, TemplateResponse.class, templatesListReference)).getList());
-		return response;
-	}
 
-	public void setRequest(MandrillRESTRequest request) {
-		this.request = request;
-	}
+    MandrillRESTRequest request;
+
+    TypeReference<List<TemplateResponse>> templatesListReference = new TypeReference<List<TemplateResponse>>() {
+    };
+
+    public TemplateResponse addTemplate(MandrillRequestWithCode addRequest) throws RequestFailedException {
+        addRequest.setKey(request.getConfig().getApiKey());
+        return (TemplateResponse) request.postRequest(addRequest, ServiceMethods.Templates.ADD, TemplateResponse.class);
+    }
+
+    public TemplateResponse getTemplateInfo(MandrillRequestWithName infoRequest) throws RequestFailedException {
+        infoRequest.setKey(request.getConfig().getApiKey());
+        return (TemplateResponse) request.postRequest(infoRequest, ServiceMethods.Templates.INFO, TemplateResponse.class);
+    }
+
+    public TemplateResponse updateTemplate(MandrillRequestWithCode updateRequest) throws RequestFailedException {
+        updateRequest.setKey(request.getConfig().getApiKey());
+        return (TemplateResponse) request.postRequest(updateRequest, ServiceMethods.Templates.UPDATE, TemplateResponse.class);
+    }
+
+    public TemplateResponse deleteTemplate(MandrillRequestWithName deleteRequest) throws RequestFailedException {
+        deleteRequest.setKey(request.getConfig().getApiKey());
+        return (TemplateResponse) request.postRequest(deleteRequest, ServiceMethods.Templates.DELETE, TemplateResponse.class);
+    }
+
+    public TemplateListResponse getTemplates(BaseMandrillRequest listRequest) throws RequestFailedException {
+        listRequest.setKey(request.getConfig().getApiKey());
+        TemplateListResponse response = new TemplateListResponse();
+        response.setList(((BaseMandrillAnonymousListResponse<TemplateResponse>) request.postRequest(listRequest, ServiceMethods.Templates.LIST, TemplateResponse.class,
+                templatesListReference)).getList());
+        return response;
+    }
+
+    public void setRequest(MandrillRESTRequest request) {
+        this.request = request;
+    }
 
 }
