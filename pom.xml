@@ -7,7 +7,7 @@
   </parent>
   <groupId>com.cribbstechnologies.clients</groupId>
   <artifactId>mandrillClient</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Java Mandrill Wrapper</name>
   <description>A Java wrapper for Mandrill</description>
