@@ -19,6 +19,8 @@ public class MandrillMessage {
 	private String[] google_analytics_domains = new String[0];
 	private String[] google_analytics_campaign = new String[0];
     private List<MergeVar> global_merge_vars;
+    
+    List<MessageMergeVars> merge_vars;
 
 	private Map<String, String> headers;
 	
@@ -142,4 +144,12 @@ public class MandrillMessage {
 	public void setSentAt(String sent_at) {
 		this.sent_at = sent_at;
 	}
+
+	public List<MessageMergeVars> getMerge_vars() {
+        return merge_vars;
+    }
+
+    public void setMerge_vars(List<MessageMergeVars> merge_vars) {
+        this.merge_vars = merge_vars;
+    }
 }
