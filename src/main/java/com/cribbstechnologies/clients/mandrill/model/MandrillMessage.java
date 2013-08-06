@@ -9,6 +9,7 @@ public class MandrillMessage {
 	private String subject;
 	private String from_email;
 	private String from_name;
+	private String sent_at;
 	private MandrillRecipient[] to;
 	private boolean track_opens=false;
 	private boolean track_clicks=false;
@@ -18,7 +19,7 @@ public class MandrillMessage {
 	private String[] google_analytics_domains = new String[0];
 	private String[] google_analytics_campaign = new String[0];
     private List<MergeVar> global_merge_vars;
-	
+
 	private Map<String, String> headers;
 	
 	public String getSubject() {
@@ -133,4 +134,12 @@ public class MandrillMessage {
     public void setGlobal_merge_vars(List<MergeVar> global_merge_vars) {
         this.global_merge_vars = global_merge_vars;
     }
+
+	public String getSentAt() {
+		return sent_at;
+	}
+
+	public void setSentAt(String sent_at) {
+		this.sent_at = sent_at;
+	}
 }
