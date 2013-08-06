@@ -15,6 +15,7 @@ public class MandrillMessage {
 	private boolean track_clicks=false;
 	private boolean auto_text=false;
 	private boolean url_strip_qs=false;
+	private String bcc_address;
 	private String[] tags = new String[0];
 	private String[] google_analytics_domains = new String[0];
 	private String[] google_analytics_campaign = new String[0];
@@ -152,4 +153,12 @@ public class MandrillMessage {
     public void setMerge_vars(List<MessageMergeVars> merge_vars) {
         this.merge_vars = merge_vars;
     }
+
+	public void setBcc_address(String bcc_address) {
+		this.bcc_address = bcc_address;
+	}
+	
+	public String getBcc_address() {
+		return bcc_address;
+	}
 }
