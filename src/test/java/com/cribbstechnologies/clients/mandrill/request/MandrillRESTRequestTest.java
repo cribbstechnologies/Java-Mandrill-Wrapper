@@ -258,6 +258,7 @@ public class MandrillRESTRequestTest {
 		sb.append(",\"track_clicks\":true");
 		sb.append(",\"auto_text\":false");
 		sb.append(",\"url_strip_qs\":false");
+		sb.append(",\"preserve_recipients\":false");
 		sb.append(",\"tags\":[\"tag1\",\"tag2\"]");
 		sb.append(",\"google_analytics_domains\":[]");
 		sb.append(",\"google_analytics_campaign\":[]");
