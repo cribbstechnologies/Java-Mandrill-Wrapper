@@ -9,14 +9,23 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.MockitoAnnotations.initMocks;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Base64InputStream;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -36,6 +45,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
+import com.cribbstechnologies.clients.mandrill.model.Attachment;
 import com.cribbstechnologies.clients.mandrill.model.BaseMandrillRequest;
 import com.cribbstechnologies.clients.mandrill.model.MandrillHtmlMessage;
 import com.cribbstechnologies.clients.mandrill.model.MandrillMessageRequest;
@@ -243,6 +253,10 @@ public class MandrillRESTRequestTest {
 		
 		mutableMessage.setHeaders(headerMap);
 		
+		List<Attachment> attachments = new ArrayList<Attachment>();
+		attachments.add(new Attachment("image/jpeg", "jose.png", sampleBase64Image()));
+		mutableMessage.setAttachments(attachments);
+		
 		mutableMessageRequest.setMessage(mutableMessage);
 //		System.out.println(request.getPostData(mutableMessageRequest));
 		StringBuffer sb = new StringBuffer();
@@ -263,12 +277,20 @@ public class MandrillRESTRequestTest {
 		sb.append(",\"google_analytics_campaign\":[]");
         sb.append(",\"global_merge_vars\":null");
         sb.append(",\"merge_vars\":null");
+        sb.append(",\"attachments\":[{\"type\":\"image/jpeg\",\"name\":\"jose.png\",\"content\":\"W3siZW1haWwiOiAiZXhhbXBsZSBlbWFpbCIsICJzdGF0dXMiOiAiZXhhbXBsZSBzdGF0dXMifSx7\\r\\nImVtYWlsIjogImV4YW1wbGUgZW1haWwyIiwgInN0YXR1cyI6ICJleGFtcGxlIHN0YXR1czIifV0=\\r\\n\"}]");
 		sb.append(",\"headers\":{\"headerName\":\"headerValue\"},");
 		sb.append("\"html\":\"Test html\"");
 		sb.append("}}");
 		String output = request.getPostData(mutableMessageRequest);
 		System.out.println("Comparing:\n" + sb.toString() + "\n" + output);
 		assertEquals(sb.toString(), output);
+	}
+	
+	private String sampleBase64Image() throws IOException {
+		StringWriter sw = new StringWriter();
+		IOUtils.copy(new Base64InputStream(this.getClass().getClassLoader().getResourceAsStream("messages/sendMessageResponse.txt"), true), sw);
+
+		return sw.toString();
 	}
 	
 	@Test
