@@ -64,22 +64,8 @@
             
             
   </dependencies>
-  <distributionManagement>
-  	<snapshotRepository>
-  		<id>cv-svn-repo</id>
-  		<name>CrowdVested svn repo</name>
-		<url>https://subversion.assembla.com/svn/crowdvested/repo/</url>
-  	</snapshotRepository>
-  </distributionManagement>
   
-  <repositories>
-  	<repository>
-		<id>cv-svn-repo</id>
-		<name>CrowdVested svn repo</name>
-		<url>https://subversion.assembla.com/svn/crowdvested/repo/</url>
-	</repository>
-  </repositories>
-
+  
   <build>
         <plugins>
             <!-- Compile against 1.5 -->
