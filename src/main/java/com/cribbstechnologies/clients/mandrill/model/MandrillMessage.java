@@ -15,6 +15,7 @@ public class MandrillMessage {
 	private boolean auto_text=false;
 	private boolean url_strip_qs=false;
 	private String[] tags = new String[0];
+    private List<MandrillMessageAttachment> attachments;
 	private String[] google_analytics_domains = new String[0];
 	private String[] google_analytics_campaign = new String[0];
     private List<MergeVar> global_merge_vars;
@@ -37,9 +38,10 @@ public class MandrillMessage {
 	public void setFrom_email(String from_email) {
 		this.from_email = from_email;
 	}
-	
-	public String getFrom_name() {
+
+    public String getFrom_name() {
 		return from_name;
+
 	}
 	
 	public void setFrom_name(String from_name) {
@@ -77,8 +79,16 @@ public class MandrillMessage {
 	public void setTags(String[] tags) {
 		this.tags = tags;
 	}
-	
-	public Map<String, String> getHeaders() {
+
+    public List<MandrillMessageAttachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<MandrillMessageAttachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public Map<String, String> getHeaders() {
 		return headers;
 	}
 	
