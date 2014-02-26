@@ -9,6 +9,7 @@ public class MandrillMessage {
     private String subject;
     private String from_email;
     private String from_name;
+    private String subaccount;
     private MandrillRecipient[] to;
     private boolean track_opens = false;
     private boolean track_clicks = false;
@@ -70,8 +71,12 @@ public class MandrillMessage {
     public MandrillRecipient[] getTo() {
         return this.to;
     }
+    
+    public String getSubaccount() {
+		return subaccount;
+	}
 
-    public boolean isAuto_text() {
+	public boolean isAuto_text() {
         return this.auto_text;
     }
 
@@ -150,4 +155,9 @@ public class MandrillMessage {
     public void setUrl_strip_qs(boolean url_strip_qs) {
         this.url_strip_qs = url_strip_qs;
     }
+
+	public void setSubaccount(String subaccount) {
+		this.subaccount = subaccount;
+	}
+    
 }
