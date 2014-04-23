@@ -24,6 +24,9 @@ public class MessageInfoResponse extends BaseMandrillResponse {
     List<MessageInfoOpensDetail> opens_detail;
     List<MessageInfoClicksDetail> clicks_detail;
     List<String> resends;
+    String bgtools_code;
+    String diag;
+    String bounce_description;
 
     public List<String> getResends() {
         return resends;
@@ -135,6 +138,32 @@ public class MessageInfoResponse extends BaseMandrillResponse {
 
     public void setClicks_detail(List<MessageInfoClicksDetail> clicks_detail) {
         this.clicks_detail = clicks_detail;
+    }
+
+    public String getBgtools_code() {
+        return bgtools_code;
+    }
+
+    public String getDiag() {
+        return diag;
+    }
+
+    public void setDiag(String diag) {
+        this.diag = diag;
+    }
+
+    public String getBounce_description() {
+        return bounce_description;
+    }
+
+    public void setBounce_description(String bounce_description) {
+        this.bounce_description = bounce_description;
+    }
+
+    public void setBgtools_code(String bgtools_code) {
+        this.bgtools_code = bgtools_code;
+
+
     }
 
     @Override

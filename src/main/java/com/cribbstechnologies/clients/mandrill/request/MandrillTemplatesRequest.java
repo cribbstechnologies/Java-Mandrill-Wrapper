@@ -2,7 +2,8 @@ package com.cribbstechnologies.clients.mandrill.request;
 
 import java.util.List;
 
-import org.codehaus.jackson.type.TypeReference;
+import com.cribbstechnologies.clients.mandrill.model.MandrillTemplatedMessageRequest;
+import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillResponse;import com.cribbstechnologies.clients.mandrill.model.response.templates.TemplateRenderResponse;import org.codehaus.jackson.type.TypeReference;
 
 import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.BaseMandrillRequest;
@@ -42,6 +43,10 @@ public class MandrillTemplatesRequest {
                 templatesListReference)).getList());
         return response;
     }
+
+    public TemplateRenderResponse renderTemplate(MandrillTemplatedMessageRequest templatedMessageRequest) throws RequestFailedException {
+        return (TemplateRenderResponse) request.postRequest(templatedMessageRequest, ServiceMethods.Templates.RENDER, TemplateRenderResponse.class);
+     }
 
     public void setRequest(MandrillRESTRequest request) {
         this.request = request;
