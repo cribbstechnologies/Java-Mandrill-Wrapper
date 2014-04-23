@@ -6,6 +6,7 @@ public class MandrillTemplatedMessageRequest extends BaseMandrillRequest {
 	
 	String template_name;
 	List<TemplateContent >template_content;
+    List<MergeVar> merge_vars;
 	MandrillMessage message;
 	
 	public String getTemplate_name() {
@@ -32,4 +33,8 @@ public class MandrillTemplatedMessageRequest extends BaseMandrillRequest {
 		this.message = message;
 	}
 
-}
+    public List<MergeVar> getMerge_vars() {
+        return merge_vars;
+    }public void setMerge_vars(List<MergeVar> merge_vars) {
+    this.merge_vars = merge_vars;
+}}

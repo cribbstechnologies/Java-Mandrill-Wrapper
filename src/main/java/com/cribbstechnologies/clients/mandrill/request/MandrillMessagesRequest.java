@@ -2,6 +2,9 @@ package com.cribbstechnologies.clients.mandrill.request;
 
 import java.util.List;
 
+import com.cribbstechnologies.clients.mandrill.model.MandrillMessageInfoRequest;
+import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillResponse;
+import com.cribbstechnologies.clients.mandrill.model.response.message.MessageInfoResponse;
 import org.codehaus.jackson.type.TypeReference;
 
 import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
@@ -14,9 +17,9 @@ import com.cribbstechnologies.clients.mandrill.model.response.message.SendMessag
 
 /**
  * This class holds various functions for the Mandrill Messages API
- * 
+ *
  * @author Brian Cribbs
- * 
+ *
  */
 public class MandrillMessagesRequest {
 
@@ -26,7 +29,7 @@ public class MandrillMessagesRequest {
 
     /**
      * Send a new transactional message through Mandrill
-     * 
+     *
      * @param messageRequest
      *            a populated @see com.cribstechnologies.clients.mandrill.model.MandrillMessageRequest
      * @throws RequestFailedException
@@ -42,6 +45,11 @@ public class MandrillMessagesRequest {
         SendMessageResponse response = new SendMessageResponse();
         response.setList(((BaseMandrillAnonymousListResponse<MessageResponse>) request.postRequest(templateMessage, ServiceMethods.Messages.SEND_TEMPLATE,
                 SendMessageResponse.class, messageResponseListReference)).getList());
+        return response;
+    }
+
+    public MessageInfoResponse getMessageInfo(MandrillMessageInfoRequest messageInfoRequest) throws RequestFailedException {
+        MessageInfoResponse response = (MessageInfoResponse)request.postRequest(messageInfoRequest, ServiceMethods.Messages.INFO, MessageInfoResponse.class);
         return response;
     }
 
