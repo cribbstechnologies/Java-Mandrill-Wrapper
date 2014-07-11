@@ -7,7 +7,7 @@
 <!--   </parent> -->
   <groupId>com.cribbstechnologies.clients</groupId>
   <artifactId>mandrillClient</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>Java Mandrill Wrapper</name>
   <description>A Java wrapper for Mandrill</description>
@@ -36,7 +36,7 @@
   	<dependency>
 		<groupId>org.apache.httpcomponents</groupId>
 		<artifactId>httpclient</artifactId>
-		<version>4.1.1</version>
+		<version>4.3</version>
 	</dependency>
 	<dependency>
 		<groupId>junit</groupId>
@@ -44,11 +44,28 @@
 		<version>4.10</version>
 		<scope>test</scope>
 	</dependency>
-	<dependency>
-		<groupId>org.codehaus.jackson</groupId>
-		<artifactId>jackson-mapper-asl</artifactId>
-		<version>1.9.4</version>
-	</dependency>
+	
+	
+	        <!-- Jackson 2.x Core -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.2.3</version>
+		</dependency>
+		<!-- Jackson 2.x Annotations -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>2.2.3</version>
+		</dependency>
+		<!-- Jackson 2.x Databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.2.3</version>
+		</dependency>
+	
+	
 	<dependency>
 		<groupId>org.mockito</groupId>
 		<artifactId>mockito-all</artifactId>
@@ -65,6 +82,11 @@
             
   </dependencies>
   
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>  
   
   <build>
         <plugins>
@@ -78,6 +100,28 @@
                     <target>1.5</target>
                 </configuration>
             </plugin>
+            <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-gpg-plugin</artifactId>
+		        <executions>
+		          <execution>
+		            <id>sign-artifacts</id>
+		            <phase>verify</phase>
+		            <goals>
+		              <goal>sign</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
         </plugins>    
   </build>
+  
+  <licenses>
+  	<license>
+  		<name>Apache License, Version 2.0</name>
+	    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+	    <distribution>repo</distribution>
+	    <comments>A business-friendly OSS license</comments>
+  	</license>
+  </licenses>
 </project>

@@ -7,7 +7,7 @@
 <bean id="apacheHttpClient" class="org.apache.http.impl.client.DefaultHttpClient"/>
 <bean id="defaultObjectMapper" class="org.codehaus.jackson.map.ObjectMapper"/>
 
-<bean id="mandrillRESTRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillRestRequest">
+<bean id="mandrillRESTRequest" class="com.cribbstechnologies.clients.mandrill.request.MandrillRestRequest" scope="request">
 	<property name="config" ref="defaultMandrillConfiguration"/>
 	<property name="httpClient" ref="apacheHttpClient"/>
 	<property name="objectMapper" ref="defaultObjectMapper"/>

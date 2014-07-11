@@ -2,8 +2,6 @@ package com.cribbstechnologies.clients.mandrill.request;
 
 import java.util.List;
 
-import org.codehaus.jackson.type.TypeReference;
-
 import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.BaseMandrillRequest;
 import com.cribbstechnologies.clients.mandrill.model.MandrillRequestWithDomain;
@@ -18,6 +16,7 @@ import com.cribbstechnologies.clients.mandrill.model.response.users.PingResponse
 import com.cribbstechnologies.clients.mandrill.model.response.users.UsersInfoResponse;
 import com.cribbstechnologies.clients.mandrill.model.response.users.UsersSendersResponse;
 import com.cribbstechnologies.clients.mandrill.model.response.users.VerifyResponse;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 /**
  * 

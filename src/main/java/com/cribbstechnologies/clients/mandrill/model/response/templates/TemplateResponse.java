@@ -1,7 +1,7 @@
 package com.cribbstechnologies.clients.mandrill.model.response.templates;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillResponse;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponse extends BaseMandrillResponse {
