@@ -1,127 +1,152 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-<!--   <parent> -->
-<!--     <groupId>org.sonatype.oss</groupId> -->
-<!--     <artifactId>oss-parent</artifactId> -->
-<!--     <version>7</version> -->
-<!--   </parent> -->
-  <groupId>com.cribbstechnologies.clients</groupId>
-  <artifactId>mandrillClient</artifactId>
-  <version>1.0.0</version>
-  <packaging>jar</packaging>
-  <name>Java Mandrill Wrapper</name>
-  <description>A Java wrapper for Mandrill</description>
-  <url>https://github.com/cribbstechnologies/Java-Mandrill-Wrapper</url>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- <parent> -->
+	<!-- <groupId>org.sonatype.oss</groupId> -->
+	<!-- <artifactId>oss-parent</artifactId> -->
+	<!-- <version>7</version> -->
+	<!-- </parent> -->
+	<groupId>com.cribbstechnologies.clients</groupId>
+	<artifactId>mandrillClient</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<name>Java Mandrill Wrapper</name>
+	<description>A Java wrapper for Mandrill</description>
+	<url>https://github.com/cribbstechnologies/Java-Mandrill-Wrapper</url>
 
-  <developers>
-    <developer>
-      <name>Brian Cribbs</name>
-      <organization>Cribbs Technologies</organization>
-      <organizationUrl>http://www.cribbstechnologies.com/</organizationUrl>
-      <email>brian@cribbstechnologies.com</email>
-      <roles>
-        <role>Committer</role>
-      </roles>
-    </developer>
-  </developers>
-  
-  <scm>
-    <url>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</url>
-    <connection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</connection>
-    <developerConnection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git
+	<developers>
+		<developer>
+			<name>Brian Cribbs</name>
+			<organization>Cribbs Technologies</organization>
+			<organizationUrl>http://www.cribbstechnologies.com/</organizationUrl>
+			<email>brian@cribbstechnologies.com</email>
+			<roles>
+				<role>Committer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</url>
+		<connection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</connection>
+		<developerConnection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git
     </developerConnection>
-  </scm>
-  
-  <dependencies>
-  	<dependency>
-		<groupId>org.apache.httpcomponents</groupId>
-		<artifactId>httpclient</artifactId>
-		<version>4.3</version>
-	</dependency>
-	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>4.10</version>
-		<scope>test</scope>
-	</dependency>
-	
-	
-	        <!-- Jackson 2.x Core -->
+	</scm>
+
+	<dependencies>
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-core</artifactId>
-		    <version>2.2.3</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- Jackson 2.x Core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.2.3</version>
 		</dependency>
 		<!-- Jackson 2.x Annotations -->
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-annotations</artifactId>
-		    <version>2.2.3</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.2.3</version>
 		</dependency>
 		<!-- Jackson 2.x Databind -->
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>2.2.3</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.2.3</version>
 		</dependency>
-	
-	
-	<dependency>
-		<groupId>org.mockito</groupId>
-		<artifactId>mockito-all</artifactId>
-		<version>1.8.4</version>
-		<scope>test</scope>
-	</dependency>
-	<dependency>
-		<groupId>commons-io</groupId>
-		<artifactId>commons-io</artifactId>
-		<version>2.0</version>
-		<scope>test</scope>
-	</dependency>
-            
-            
-  </dependencies>
-  
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>  
-  
-  <build>
-        <plugins>
-            <!-- Compile against 1.5 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
-            </plugin>
-            <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-gpg-plugin</artifactId>
-		        <executions>
-		          <execution>
-		            <id>sign-artifacts</id>
-		            <phase>verify</phase>
-		            <goals>
-		              <goal>sign</goal>
-		            </goals>
-		          </execution>
-		        </executions>
-		      </plugin>
-        </plugins>    
-  </build>
-  
-  <licenses>
-  	<license>
-  		<name>Apache License, Version 2.0</name>
-	    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-	    <distribution>repo</distribution>
-	    <comments>A business-friendly OSS license</comments>
-  	</license>
-  </licenses>
+
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
+	<build>
+		<plugins>
+			<!-- Compile against 1.5 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
 </project>
