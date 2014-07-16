@@ -6,7 +6,7 @@ package com.cribbstechnologies.clients.mandrill.model;
  *
  */
 
-public class Attachment {
+public class Attachment implements java.io.Serializable {
 	
 	private String type, name, content;
 	
