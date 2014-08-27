@@ -187,6 +187,7 @@ public class MandrillRESTRequestTest {
         this.mutableMessage.setSubject("Test subject");
         this.mutableMessage.setFrom_email("from@email.com");
         this.mutableMessage.setFrom_name("From Name");
+        this.mutableMessage.setSubaccount("test");
         MandrillRecipient[] to = new MandrillRecipient[2];
         to[0] = new MandrillRecipient("to1", "to1");
         to[1] = new MandrillRecipient("to2", "to2");
@@ -212,11 +213,13 @@ public class MandrillRESTRequestTest {
         sb.append(",\"subject\":\"Test subject\"");
         sb.append(",\"from_email\":\"from@email.com\"");
         sb.append(",\"from_name\":\"From Name\"");
+        sb.append(",\"subaccount\":\"test\"");
         sb.append(",\"to\":[{\"email\":\"to1\",\"name\":\"to1\"},{\"email\":\"to2\",\"name\":\"to2\"}]");
         sb.append(",\"track_opens\":false");
         sb.append(",\"track_clicks\":true");
         sb.append(",\"auto_text\":false");
         sb.append(",\"url_strip_qs\":false");
+        sb.append(",\"preserve_recipients\":false");
         sb.append(",\"tags\":[\"tag1\",\"tag2\"]");
         sb.append(",\"google_analytics_domains\":[]");
         sb.append(",\"google_analytics_campaign\":[]");
