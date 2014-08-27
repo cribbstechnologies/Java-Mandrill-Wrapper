@@ -6,9 +6,11 @@ import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.BaseMandrillRequest;
 import com.cribbstechnologies.clients.mandrill.model.MandrillRequestWithCode;
 import com.cribbstechnologies.clients.mandrill.model.MandrillRequestWithName;
+import com.cribbstechnologies.clients.mandrill.model.MandrillTemplatedMessageRequest;
 import com.cribbstechnologies.clients.mandrill.model.ServiceMethods;
 import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillAnonymousListResponse;
 import com.cribbstechnologies.clients.mandrill.model.response.templates.TemplateListResponse;
+import com.cribbstechnologies.clients.mandrill.model.response.templates.TemplateRenderResponse;
 import com.cribbstechnologies.clients.mandrill.model.response.templates.TemplateResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -41,6 +43,10 @@ public class MandrillTemplatesRequest {
                 templatesListReference)).getList());
         return response;
     }
+
+    public TemplateRenderResponse renderTemplate(MandrillTemplatedMessageRequest templatedMessageRequest) throws RequestFailedException {
+        return (TemplateRenderResponse) request.postRequest(templatedMessageRequest, ServiceMethods.Templates.RENDER, TemplateRenderResponse.class);
+     }
 
     public void setRequest(MandrillRESTRequest request) {
         this.request = request;

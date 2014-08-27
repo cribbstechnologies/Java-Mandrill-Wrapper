@@ -21,6 +21,7 @@ public class ServiceMethods {
         public static final String SEARCH = "messages/search.json";
         public static final String PARSE = "messages/parse.json";
         public static final String SEND_RAW = "messages/send-raw.json";
+        public static final String INFO = "messages/info.json";
     }
 
     public class Tags {
