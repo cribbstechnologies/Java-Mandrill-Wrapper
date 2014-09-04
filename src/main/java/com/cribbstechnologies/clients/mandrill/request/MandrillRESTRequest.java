@@ -1,19 +1,8 @@
 package com.cribbstechnologies.clients.mandrill.request;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.util.EntityUtils;
-
 import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.BaseMandrillRequest;
+import com.cribbstechnologies.clients.mandrill.model.MandrillError;
 import com.cribbstechnologies.clients.mandrill.model.ServiceMethods;
 import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillAnonymousListResponse;
 import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillResponse;
@@ -24,6 +13,16 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.util.List;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.util.EntityUtils;
 
 public class MandrillRESTRequest {
 
@@ -64,7 +63,8 @@ public class MandrillRESTRequest {
             String responseString = sb.toString();
             EntityUtils.consume(response.getEntity());
             if (response.getStatusLine().getStatusCode() != 200) {
-                throw new RequestFailedException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode() + " " + responseString);
+                //throw new RequestFailedException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode() + " " + responseString);
+                throw new RequestFailedException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode() + " " + responseString, objectMapper.readValue(responseString, MandrillError.class));
             }
 
             // for whatever reason the ping response isn't well-formed
