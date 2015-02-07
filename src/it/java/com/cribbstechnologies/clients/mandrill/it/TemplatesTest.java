@@ -9,7 +9,6 @@ import java.util.Properties;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,6 +21,7 @@ import com.cribbstechnologies.clients.mandrill.model.response.templates.Template
 import com.cribbstechnologies.clients.mandrill.request.MandrillRESTRequest;
 import com.cribbstechnologies.clients.mandrill.request.MandrillTemplatesRequest;
 import com.cribbstechnologies.clients.mandrill.util.MandrillConfiguration;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TemplatesTest {
 

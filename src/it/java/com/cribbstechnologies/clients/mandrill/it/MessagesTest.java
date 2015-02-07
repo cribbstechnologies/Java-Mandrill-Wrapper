@@ -9,7 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import com.cribbstechnologies.clients.mandrill.model.*;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.MandrillHtmlMessage;
 import com.cribbstechnologies.clients.mandrill.model.MandrillMessage;
 import com.cribbstechnologies.clients.mandrill.model.MandrillMessageRequest;
@@ -17,18 +23,11 @@ import com.cribbstechnologies.clients.mandrill.model.MandrillRecipient;
 import com.cribbstechnologies.clients.mandrill.model.MandrillTemplatedMessageRequest;
 import com.cribbstechnologies.clients.mandrill.model.MergeVar;
 import com.cribbstechnologies.clients.mandrill.model.TemplateContent;
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.response.message.SendMessageResponse;
 import com.cribbstechnologies.clients.mandrill.request.MandrillMessagesRequest;
 import com.cribbstechnologies.clients.mandrill.request.MandrillRESTRequest;
 import com.cribbstechnologies.clients.mandrill.util.MandrillConfiguration;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MessagesTest {
 	

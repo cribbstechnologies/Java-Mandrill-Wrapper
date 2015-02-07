@@ -7,7 +7,6 @@ import java.util.Properties;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,6 +19,7 @@ import com.cribbstechnologies.clients.mandrill.model.response.tags.TagSeriesResp
 import com.cribbstechnologies.clients.mandrill.request.MandrillRESTRequest;
 import com.cribbstechnologies.clients.mandrill.request.MandrillTagsRequest;
 import com.cribbstechnologies.clients.mandrill.util.MandrillConfiguration;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TagsTest {
 	
