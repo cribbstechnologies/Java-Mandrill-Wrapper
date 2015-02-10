@@ -215,6 +215,7 @@ public class MandrillRESTRequestTest {
         sb.append(",\"from_name\":\"From Name\"");
         sb.append(",\"subaccount\":\"test\"");
         sb.append(",\"to\":[{\"email\":\"to1\",\"name\":\"to1\"},{\"email\":\"to2\",\"name\":\"to2\"}]");
+        sb.append(",\"bcc_address\":null");
         sb.append(",\"track_opens\":false");
         sb.append(",\"track_clicks\":true");
         sb.append(",\"auto_text\":false");
@@ -234,6 +235,69 @@ public class MandrillRESTRequestTest {
         assertEquals(sb.toString(), output);
     }
 
+	@Test
+	public void testGetPostDataMandrillMessageRequestWithBCC() throws Exception {
+		initRequestWithActualMapper();
+		
+		emptyMessageRequest.setMessage(emptyMessage);
+		assertEquals("{\"key\":null,\"message\":null}", request.getPostData(emptyMessageRequest));
+		
+		mutableMessageRequest = new MandrillMessageRequest();
+		mutableMessageRequest.setKey("API Key");
+		mutableMessage = new MandrillHtmlMessage();
+		mutableMessage.setHtml("Test html");
+		mutableMessage.setText("Test text");
+		mutableMessage.setSubject("Test subject");
+		mutableMessage.setFrom_email("from@email.com");
+		mutableMessage.setFrom_name("From Name");
+		MandrillRecipient[] to = new MandrillRecipient[2];
+		to[0] = new MandrillRecipient("to1", "to1");
+		to[1] = new MandrillRecipient("to2", "to2");
+		mutableMessage.setTo(to);
+		mutableMessage.setBcc_address("bcc@email.com");
+		mutableMessage.setTrack_opens(false);
+		mutableMessage.setTrack_clicks(true);
+		String[] tags = new String[2];
+		tags[0] = "tag1";
+		tags[1] = "tag2";
+		mutableMessage.setTags(tags);
+		Map<String, String> headerMap = new HashMap<String, String>();
+		headerMap.put("headerName", "headerValue");
+		
+		mutableMessage.setHeaders(headerMap);
+		
+		mutableMessageRequest.setMessage(mutableMessage);
+//		System.out.println(request.getPostData(mutableMessageRequest));
+		StringBuffer sb = new StringBuffer();
+		sb.append("{");
+		sb.append("\"key\":\"API Key\"");
+		sb.append(",\"message\":{");
+		sb.append("\"text\":\"Test text\"");
+		sb.append(",\"subject\":\"Test subject\"");
+		sb.append(",\"from_email\":\"from@email.com\"");
+		sb.append(",\"from_name\":\"From Name\"");
+        sb.append(",\"subaccount\":null");
+		sb.append(",\"to\":[{\"email\":\"to1\",\"name\":\"to1\"},{\"email\":\"to2\",\"name\":\"to2\"}]");
+		sb.append(",\"bcc_address\":\"bcc@email.com\"");
+		sb.append(",\"track_opens\":false");
+		sb.append(",\"track_clicks\":true");
+		sb.append(",\"auto_text\":false");
+		sb.append(",\"url_strip_qs\":false");
+		sb.append(",\"preserve_recipients\":false");
+		sb.append(",\"tags\":[\"tag1\",\"tag2\"]");
+		sb.append(",\"google_analytics_domains\":[]");
+		sb.append(",\"google_analytics_campaign\":[]");
+        sb.append(",\"global_merge_vars\":null");
+        sb.append(",\"merge_vars\":null");
+        sb.append(",\"attachments\":null");
+        sb.append(",\"headers\":{\"headerName\":\"headerValue\"},");
+		sb.append("\"html\":\"Test html\"");
+		sb.append("}}");
+		String output = request.getPostData(mutableMessageRequest);
+		System.out.println("Comparing:\n" + sb.toString() + "\n" + output);
+		assertEquals(sb.toString(), output);
+	}
+    
     @Test
     public void testGetPostDataMandrillRequestWithEmail() throws Exception {
         this.initRequestWithActualMapper();

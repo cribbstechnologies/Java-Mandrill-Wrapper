@@ -5,26 +5,27 @@ import java.util.Map;
 
 public class MandrillMessage {
 
-    private String text;
-    private String subject;
-    private String from_email;
-    private String from_name;
-    private String subaccount;
-    private MandrillRecipient[] to;
-    private boolean track_opens = false;
-    private boolean track_clicks = false;
-    private boolean auto_text = false;
-    private boolean url_strip_qs = false;
-    private boolean preserve_recipients = false;
-    private String[] tags = new String[0];
-    private String[] google_analytics_domains = new String[0];
-    private String[] google_analytics_campaign = new String[0];
+	private String text;
+	private String subject;
+	private String from_email;
+	private String from_name;
+	private String subaccount;
+	private MandrillRecipient[] to;
+	private String bcc_address;
+	private boolean track_opens=false;
+	private boolean track_clicks=false;
+	private boolean auto_text=false;
+	private boolean url_strip_qs=false;
+	private boolean preserve_recipients = false;
+	private String[] tags = new String[0];
+	private String[] google_analytics_domains = new String[0];
+	private String[] google_analytics_campaign = new String[0];
     private List<MergeVar> global_merge_vars;
     List<MessageMergeVars> merge_vars;
     List<MandrillAttachment> attachments;
-
-    private Map<String, String> headers;
-
+	
+	private Map<String, String> headers;
+	
     public List<MandrillAttachment> getAttachments() {
         return this.attachments;
     }
@@ -72,6 +73,10 @@ public class MandrillMessage {
     public MandrillRecipient[] getTo() {
         return this.to;
     }
+
+	public String getBcc_address() {
+		return bcc_address;
+	}
 
     public boolean isAuto_text() {
         return this.auto_text;
@@ -140,6 +145,10 @@ public class MandrillMessage {
     public void setTo(MandrillRecipient[] to) {
         this.to = to;
     }
+	
+	public void setBcc_address(String bcc) {
+		this.bcc_address = bcc;
+	}
 
     public void setTrack_clicks(boolean track_clicks) {
         this.track_clicks = track_clicks;
