@@ -8,11 +8,11 @@
 	<!-- </parent> -->
 	<groupId>com.cribbstechnologies.clients</groupId>
 	<artifactId>mandrillClient</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.1.FIXMERGEVARS</version>
 	<packaging>jar</packaging>
 	<name>Java Mandrill Wrapper</name>
 	<description>A Java wrapper for Mandrill</description>
-	<url>https://github.com/cribbstechnologies/Java-Mandrill-Wrapper</url>
+	<url>https://github.com/stanislasbonifetto/Java-Mandrill-Wrapper.git</url>
 
 	<developers>
 		<developer>
@@ -27,9 +27,9 @@
 	</developers>
 
 	<scm>
-		<url>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</url>
-		<connection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git</connection>
-		<developerConnection>scm:git:git@github.com:cribbstechnologies/Java-Mandrill-Wrapper.git
+		<url>scm:git:git@github.com:stanislasbonifetto/Java-Mandrill-Wrapper.git</url>
+		<connection>scm:git:git@github.com:stanislasbonifetto/Java-Mandrill-Wrapper.git</connection>
+		<developerConnection>scm:git:git@github.com:stanislasbonifetto/Java-Mandrill-Wrapper.git
     </developerConnection>
 	</scm>
 
