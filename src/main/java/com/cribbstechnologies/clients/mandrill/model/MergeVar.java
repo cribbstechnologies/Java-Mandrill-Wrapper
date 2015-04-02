@@ -10,7 +10,7 @@ package com.cribbstechnologies.clients.mandrill.model;
 public class MergeVar {
     private String name;
     private Object content;
-    public MergeVar(String name, String content) {
+    public MergeVar(String name, Object content) {
         this.name = name;
         this.content = content;
     }
