@@ -227,6 +227,13 @@ public class MandrillRESTRequestTest {
         sb.append(",\"global_merge_vars\":null");
         sb.append(",\"merge_vars\":null");
         sb.append(",\"attachments\":null");
+        sb.append(",\"important\":false");
+        sb.append(",\"auto_html\":false");
+        sb.append(",\"inline_css\":false");
+        sb.append(",\"merge\":false");
+        sb.append(",\"merge_language\":null");
+        sb.append(",\"metadata\":null");
+        sb.append(",\"recipient_metadata\":null");
         sb.append(",\"headers\":{\"headerName\":\"headerValue\"},");
         sb.append("\"html\":\"Test html\"");
         sb.append("}}");
@@ -290,6 +297,13 @@ public class MandrillRESTRequestTest {
         sb.append(",\"global_merge_vars\":null");
         sb.append(",\"merge_vars\":null");
         sb.append(",\"attachments\":null");
+        sb.append(",\"important\":false");
+        sb.append(",\"auto_html\":false");
+        sb.append(",\"inline_css\":false");
+        sb.append(",\"merge\":false");
+        sb.append(",\"merge_language\":null");
+        sb.append(",\"metadata\":null");
+        sb.append(",\"recipient_metadata\":null");
         sb.append(",\"headers\":{\"headerName\":\"headerValue\"},");
 		sb.append("\"html\":\"Test html\"");
 		sb.append("}}");

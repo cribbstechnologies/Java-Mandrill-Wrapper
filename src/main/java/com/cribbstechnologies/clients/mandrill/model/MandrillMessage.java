@@ -23,6 +23,13 @@ public class MandrillMessage {
     private List<MergeVar> global_merge_vars;
     List<MessageMergeVars> merge_vars;
     List<MandrillAttachment> attachments;
+    private boolean important;
+    private boolean auto_html;
+    private boolean inline_css;
+    private boolean merge;
+    private String merge_language;
+    private Map<String,Object> metadata;
+    private Map<String,Object> recipient_metadata;
 	
 	private Map<String, String> headers;
 	
@@ -178,4 +185,59 @@ public class MandrillMessage {
         this.subaccount = subaccount;
     }
 
+    public boolean isAuto_html() {
+        return auto_html;
+    }
+
+    public void setAuto_html(boolean auto_html) {
+        this.auto_html = auto_html;
+    }
+
+    public boolean isImportant() {
+        return important;
+    }
+
+    public void setImportant(boolean important) {
+        this.important = important;
+    }
+
+    public boolean isInline_css() {
+        return inline_css;
+    }
+
+    public void setInline_css(boolean inline_css) {
+        this.inline_css = inline_css;
+    }
+
+    public boolean isMerge() {
+        return merge;
+    }
+
+    public void setMerge(boolean merge) {
+        this.merge = merge;
+    }
+
+    public String getMerge_language() {
+        return merge_language;
+    }
+
+    public void setMerge_language(String merge_language) {
+        this.merge_language = merge_language;
+    }
+
+    public Map<String, Object> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
+
+    public Map<String, Object> getRecipient_metadata() {
+        return recipient_metadata;
+    }
+
+    public void setRecipient_metadata(Map<String, Object> recipient_metadata) {
+        this.recipient_metadata = recipient_metadata;
+    }
 }

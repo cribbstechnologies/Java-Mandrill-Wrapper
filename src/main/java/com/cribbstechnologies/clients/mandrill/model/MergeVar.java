@@ -9,8 +9,8 @@ package com.cribbstechnologies.clients.mandrill.model;
  */
 public class MergeVar {
     private String name;
-    private String content;
-    public MergeVar(String name, String content) {
+    private Object content;
+    public MergeVar(String name, Object content) {
         this.name = name;
         this.content = content;
     }
@@ -22,11 +22,11 @@ public class MergeVar {
         this.name = name;
     }
 
-    public String getContent() {
+    public Object getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(Object content) {
         this.content = content;
     }
 }
