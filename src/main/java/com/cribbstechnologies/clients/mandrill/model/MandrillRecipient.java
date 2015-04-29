@@ -10,6 +10,10 @@ public class MandrillRecipient {
 	String name;
     String type;
 	
+	public MandrillRecipient(String email) {
+		this(email, email);
+	}
+
 	public MandrillRecipient(String name, String email) {
 		this.email = email;
 		this.name = name;
