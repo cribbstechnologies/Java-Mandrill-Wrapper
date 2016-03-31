@@ -2,7 +2,7 @@ package com.cribbstechnologies.clients.mandrill.request;
 
 import java.util.List;
 
-import org.codehaus.jackson.type.TypeReference;
+
 
 import com.cribbstechnologies.clients.mandrill.exception.RequestFailedException;
 import com.cribbstechnologies.clients.mandrill.model.BaseMandrillRequest;
@@ -13,6 +13,7 @@ import com.cribbstechnologies.clients.mandrill.model.response.tags.BaseTag;
 import com.cribbstechnologies.clients.mandrill.model.response.tags.TagListResponse;
 import com.cribbstechnologies.clients.mandrill.model.response.tags.TagSeriesResponse;
 import com.cribbstechnologies.clients.mandrill.model.response.tags.TagWithTime;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 public class MandrillTagsRequest {
 

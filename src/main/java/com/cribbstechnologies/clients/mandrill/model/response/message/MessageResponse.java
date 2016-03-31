@@ -1,8 +1,9 @@
 package com.cribbstechnologies.clients.mandrill.model.response.message;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+
 
 import com.cribbstechnologies.clients.mandrill.model.response.BaseMandrillResponse;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MessageResponse extends BaseMandrillResponse {
 

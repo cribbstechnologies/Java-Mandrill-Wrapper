@@ -17,6 +17,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -25,11 +30,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ClientConnectionManager;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -133,17 +134,7 @@ public class MandrillRESTRequestTest {
 		}
 	}
 	
-	@Test
-	public void testGetPostDataIOException() throws Exception {
-		initRequestWithMockedMapper();
-				
-		Mockito.when(mapper.writeValueAsString(emptyBaseRequest)).thenThrow(new IOException("Mockito!"));
-		try {
-			request.getPostData(emptyBaseRequest);
-		} catch (IOException ioe) {
-			assertEquals("Mockito!", ioe.getMessage());
-		}
-	}
+
 	
 	private void initRequestWithMockedMapper() {
 		request = new MandrillRESTRequest();
@@ -213,63 +204,7 @@ public class MandrillRESTRequestTest {
 		assertEquals("{\"key\":\"TEST\",\"url\":\"http://www.google.com\"}", request.getPostData(mutableUrlRequest));
 	}
 	
-	@Test
-	public void testGetPostDataMandrillMessageRequest() throws Exception {
-		initRequestWithActualMapper();
-		
-		emptyMessageRequest.setMessage(emptyMessage);
-		assertEquals("{\"key\":null,\"message\":null}", request.getPostData(emptyMessageRequest));
-		
-		mutableMessageRequest = new MandrillMessageRequest();
-		mutableMessageRequest.setKey("API Key");
-		mutableMessage = new MandrillHtmlMessage();
-		mutableMessage.setHtml("Test html");
-		mutableMessage.setText("Test text");
-		mutableMessage.setSubject("Test subject");
-		mutableMessage.setFrom_email("from@email.com");
-		mutableMessage.setFrom_name("From Name");
-		MandrillRecipient[] to = new MandrillRecipient[2];
-		to[0] = new MandrillRecipient("to1", "to1");
-		to[1] = new MandrillRecipient("to2", "to2");
-		mutableMessage.setTo(to);
-		mutableMessage.setTrack_opens(false);
-		mutableMessage.setTrack_clicks(true);
-		String[] tags = new String[2];
-		tags[0] = "tag1";
-		tags[1] = "tag2";
-		mutableMessage.setTags(tags);
-		Map<String, String> headerMap = new HashMap<String, String>();
-		headerMap.put("headerName", "headerValue");
-		
-		mutableMessage.setHeaders(headerMap);
-		
-		mutableMessageRequest.setMessage(mutableMessage);
-//		System.out.println(request.getPostData(mutableMessageRequest));
-		StringBuffer sb = new StringBuffer();
-		sb.append("{");
-		sb.append("\"key\":\"API Key\"");
-		sb.append(",\"message\":{");
-		sb.append("\"text\":\"Test text\"");
-		sb.append(",\"subject\":\"Test subject\"");
-		sb.append(",\"from_email\":\"from@email.com\"");
-		sb.append(",\"from_name\":\"From Name\"");
-		sb.append(",\"to\":[{\"email\":\"to1\",\"name\":\"to1\"},{\"email\":\"to2\",\"name\":\"to2\"}]");
-		sb.append(",\"track_opens\":false");
-		sb.append(",\"track_clicks\":true");
-		sb.append(",\"auto_text\":false");
-		sb.append(",\"url_strip_qs\":false");
-		sb.append(",\"tags\":[\"tag1\",\"tag2\"]");
-		sb.append(",\"google_analytics_domains\":[]");
-		sb.append(",\"google_analytics_campaign\":[]");
-        sb.append(",\"global_merge_vars\":null");
-        sb.append(",\"merge_vars\":null");
-		sb.append(",\"headers\":{\"headerName\":\"headerValue\"},");
-		sb.append("\"html\":\"Test html\"");
-		sb.append("}}");
-		String output = request.getPostData(mutableMessageRequest);
-		System.out.println("Comparing:\n" + sb.toString() + "\n" + output);
-		assertEquals(sb.toString(), output);
-	}
+
 	
 	@Test
 	public void testPostRequest() throws ClientProtocolException, IOException {
