@@ -17,11 +17,11 @@ public class MandrillMessage {
 	private String[] tags = new String[0];
 	private String[] google_analytics_domains = new String[0];
 	private String[] google_analytics_campaign = new String[0];
+        private Map<String, String> metadata;
         private List<MergeVar> global_merge_vars;
         List<MessageMergeVars> merge_vars;
         private String subaccount;
         private List<Attachment> attachments;
-
 	private Map<String, String> headers;
 	
 	public String getSubject() {
@@ -159,5 +159,13 @@ public class MandrillMessage {
 
     public void setSubaccount(String subaccount) {
         this.subaccount = subaccount;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 }

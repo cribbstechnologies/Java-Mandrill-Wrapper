@@ -52,6 +52,7 @@ public class ServiceMethods {
         public static final String DOMAINS = "senders/domain.json";
         public static final String INFO = "senders/info.json";
         public static final String TIME_SERIES = "senders/time-series.json";
+        public static final String CHECK_DOMAIN = "senders/check-domain.json";
     }
 
     public class Urls {
