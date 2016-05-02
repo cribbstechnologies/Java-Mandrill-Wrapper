@@ -1,6 +1,6 @@
 package com.cribbstechnologies.clients.mandrill.exception;
 
-public class RequestFailedException extends Throwable {
+public class RequestFailedException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
