@@ -23,6 +23,7 @@ public class MandrillMessage {
     private List<MergeVar> global_merge_vars;
     List<MessageMergeVars> merge_vars;
     List<MandrillAttachment> attachments;
+    List<MandrillImage> images;
     private boolean important;
     private boolean auto_html;
     private boolean inline_css;
@@ -35,6 +36,10 @@ public class MandrillMessage {
 	
     public List<MandrillAttachment> getAttachments() {
         return this.attachments;
+    }
+
+    public List<MandrillImage> getImages() {
+        return this.images;
     }
 
     public String getFrom_email() {
@@ -103,6 +108,10 @@ public class MandrillMessage {
 
     public void setAttachments(List<MandrillAttachment> attachments) {
         this.attachments = attachments;
+    }
+
+    public void setImages(List<MandrillImage> images) {
+        this.images = images;
     }
 
     public void setAuto_text(boolean auto_text) {

@@ -227,6 +227,7 @@ public class MandrillRESTRequestTest {
         sb.append(",\"global_merge_vars\":null");
         sb.append(",\"merge_vars\":null");
         sb.append(",\"attachments\":null");
+        sb.append(",\"images\":null");
         sb.append(",\"important\":false");
         sb.append(",\"auto_html\":false");
         sb.append(",\"inline_css\":false");
@@ -297,6 +298,7 @@ public class MandrillRESTRequestTest {
         sb.append(",\"global_merge_vars\":null");
         sb.append(",\"merge_vars\":null");
         sb.append(",\"attachments\":null");
+        sb.append(",\"images\":null");
         sb.append(",\"important\":false");
         sb.append(",\"auto_html\":false");
         sb.append(",\"inline_css\":false");
