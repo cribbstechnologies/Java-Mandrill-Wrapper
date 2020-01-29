@@ -110,7 +110,7 @@ public class MandrillRESTRequest {
         return objectMapper.readValue(response, (Class<BaseMandrillResponse>) responseClass);
     }
 
-    protected BaseMandrillResponse convertAnonymousListResponseData(String json, Object responseClass, TypeReference reference) throws JsonParseException, JsonMappingException,
+    protected BaseMandrillResponse convertAnonymousListResponseData(String json, Object responseClass, TypeReference<List<BaseMandrillResponse>> reference) throws JsonParseException, JsonMappingException,
             IOException {
         BaseMandrillAnonymousListResponse<BaseMandrillResponse> response = new BaseMandrillAnonymousListResponse<BaseMandrillResponse>();
         List<BaseMandrillResponse> objectList = objectMapper.readValue(json, reference);
